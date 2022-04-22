@@ -1,0 +1,25 @@
+captainVersion: 4
+services:
+    $$cap_appname:
+        image: nibrev/ant-media-server:$$cap_ant_version
+        volumes:
+            - $$cap_appname-data:/data
+        restart: always
+        environment:
+
+        caproverExtra:
+            containerHttpPort: 5080
+caproverOneClickApp:
+    variables:
+        - id: $$cap_ant_version
+          label: AntMedia Docker Server
+          description: Choose the latest version of AntMedia Server from https://hub.docker.com/r/nibrev/ant-media-server/tags
+          defaultValue: latest
+    instructions:
+        start: |-
+            Build ant media server
+        end: |-
+            AntMedia has been successfully deployed!
+    displayName: AntMedia Server
+    isOfficial: false
+    description: Ant media server
